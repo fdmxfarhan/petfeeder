@@ -1,0 +1,74 @@
+<!DOCTYPE HTML><html>
+<head>
+  <title>WiFi Configuration</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    body{
+        margin: 0;
+        padding: 0;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        background-color: #282C38;
+        color: white;
+        text-align: center;
+    }
+    h1{
+        font-size: 5vw;
+        width: 80%;
+        margin: 3vw auto;
+        margin-top: 15vw;
+        padding: 1vw 0;
+        border-bottom: 0.6vw solid white;
+    }
+    p{
+        font-size: 3.6vw;
+        width: 80%;
+        margin: 3vw auto;
+        color: #c0c0c0;
+    }
+    .raw{
+        margin-bottom: 3vw;
+        width: 100%;
+    }
+    .raw .label{
+        font-size: 4vw;
+        padding: 1vw 0;
+    }
+    .raw input{
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        background-color: #3F4253;
+        border: none;
+        padding: 1vw 3vw;
+        border-radius: 1vw;
+        color: white;
+        font-size: 5vw;
+        text-align: center;
+    }
+    input.submit{
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        color: white;
+        background-color: #4CC9F0;
+        padding: 1vw 3vw;
+        border-radius: 1vw;
+        font-size: 5vw;
+        border: none;
+        margin-top: 5vw;
+    }
+    input.submit:hover{background-color: #F72585;}
+  </style>
+</head>
+<body>
+  <h1>Configure WiFi</h1>
+  <p>please connect to a network that have access to the internet.</p>
+  <form action="/connect" method="POST">
+    <div class="raw">
+        <div class="label">SSID: </div>
+        <input type="text" name="ssid">
+    </div>
+    <div class="raw">
+        <div class="label">Password: </div>
+        <input type="text" name="password">
+    </div>
+    <input class="submit" type="submit" value="Submit">
+  </form>
+</body>
+</html>
