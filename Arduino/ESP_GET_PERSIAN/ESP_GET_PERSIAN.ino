@@ -20,6 +20,9 @@ const char* initial_password = "12341234";
 const char* serverIP = "45.90.72.56";  // Example: Your server's IP address
 const int serverPort = 3000;           // Example: Port number
 
+int Feed_Times[100][3];
+int Feed_Times_len = 0;
+
 #define setpixel(x, y, color) display.drawPixel(x, y, color)
 #define LCDWidth 128
 #define ALIGN_CENTER(t) (LCDWidth - ((LCDWidth - (LCDWidth - CalcTextWidth(t))) / 2)) - 2
@@ -295,39 +298,6 @@ bool ledState = false;  // Variable to store the state of the LED
 bool connected_to_net = false;
 String new_ssid, new_password;
 
-#line 297 "C:\\Users\\Farhan\\Documents\\Animal Feeder\\Arduino\\ESP_GET_PERSIAN\\ESP_GET_PERSIAN.ino"
-char * strreverse(char* s);
-#line 308 "C:\\Users\\Farhan\\Documents\\Animal Feeder\\Arduino\\ESP_GET_PERSIAN\\ESP_GET_PERSIAN.ino"
-void drawBitmapPE(int16_t x, int16_t y, const uint8_t bitmap[], int16_t w, int16_t h, uint16_t color);
-#line 322 "C:\\Users\\Farhan\\Documents\\Animal Feeder\\Arduino\\ESP_GET_PERSIAN\\ESP_GET_PERSIAN.ino"
-bool isFromTheSet1(unsigned char ch);
-#line 336 "C:\\Users\\Farhan\\Documents\\Animal Feeder\\Arduino\\ESP_GET_PERSIAN\\ESP_GET_PERSIAN.ino"
-bool isFromTheSet2(unsigned char ch);
-#line 349 "C:\\Users\\Farhan\\Documents\\Animal Feeder\\Arduino\\ESP_GET_PERSIAN\\ESP_GET_PERSIAN.ino"
-void PutCharPE(char* Text, int x, int y, int dis, uint16_t color);
-#line 801 "C:\\Users\\Farhan\\Documents\\Animal Feeder\\Arduino\\ESP_GET_PERSIAN\\ESP_GET_PERSIAN.ino"
-int CalcTextWidth(char* Text);
-#line 1165 "C:\\Users\\Farhan\\Documents\\Animal Feeder\\Arduino\\ESP_GET_PERSIAN\\ESP_GET_PERSIAN.ino"
-void showQRCode(String qrCodeString);
-#line 1185 "C:\\Users\\Farhan\\Documents\\Animal Feeder\\Arduino\\ESP_GET_PERSIAN\\ESP_GET_PERSIAN.ino"
-String processor(const String& var);
-#line 1191 "C:\\Users\\Farhan\\Documents\\Animal Feeder\\Arduino\\ESP_GET_PERSIAN\\ESP_GET_PERSIAN.ino"
-void handleRoot();
-#line 1200 "C:\\Users\\Farhan\\Documents\\Animal Feeder\\Arduino\\ESP_GET_PERSIAN\\ESP_GET_PERSIAN.ino"
-void handleLedOn();
-#line 1205 "C:\\Users\\Farhan\\Documents\\Animal Feeder\\Arduino\\ESP_GET_PERSIAN\\ESP_GET_PERSIAN.ino"
-void handleLedOff();
-#line 1210 "C:\\Users\\Farhan\\Documents\\Animal Feeder\\Arduino\\ESP_GET_PERSIAN\\ESP_GET_PERSIAN.ino"
-void on_net_connect();
-#line 1230 "C:\\Users\\Farhan\\Documents\\Animal Feeder\\Arduino\\ESP_GET_PERSIAN\\ESP_GET_PERSIAN.ino"
-void handleConnect();
-#line 1266 "C:\\Users\\Farhan\\Documents\\Animal Feeder\\Arduino\\ESP_GET_PERSIAN\\ESP_GET_PERSIAN.ino"
-void makeGetRequest();
-#line 1305 "C:\\Users\\Farhan\\Documents\\Animal Feeder\\Arduino\\ESP_GET_PERSIAN\\ESP_GET_PERSIAN.ino"
-void setup();
-#line 1339 "C:\\Users\\Farhan\\Documents\\Animal Feeder\\Arduino\\ESP_GET_PERSIAN\\ESP_GET_PERSIAN.ino"
-void loop();
-#line 297 "C:\\Users\\Farhan\\Documents\\Animal Feeder\\Arduino\\ESP_GET_PERSIAN\\ESP_GET_PERSIAN.ino"
 char* strreverse(char* s) {
   char *beg = s - 1, *end = s, tmp;
   while (*++end)
@@ -352,7 +322,6 @@ void drawBitmapPE(int16_t x, int16_t y, const uint8_t bitmap[], int16_t w, int16
     }
   }
 }
-
 bool isFromTheSet1(unsigned char ch) {
   const unsigned char theSet1[18] = {
     32, '\0', 199, 194, 207, 208, 209, 210,
@@ -1300,7 +1269,7 @@ void handleConnect() {
 void makeGetRequest() {
   if (WiFi.status() == WL_CONNECTED) {
     HTTPClient http;
-    String serverPath = "http://" + String(serverIP) + ":" + String(serverPort) + "/animalfeeder?id=" + DEVICE_ID;
+    String serverPath = "http://" + String(serverIP) + ":" + String(serverPort) + "/animalfeeder/api?id=" + DEVICE_ID;
     http.begin(client, serverPath);  // Specify the URL and WiFi client
 
     int httpCode = http.GET();  // Make the request
@@ -1405,6 +1374,7 @@ void loop() {
 
   if (timeClient.getSeconds() == 10) {
     makeGetRequest();
+    delay(1000);
   }
 
   if (digitalRead(16)) {
