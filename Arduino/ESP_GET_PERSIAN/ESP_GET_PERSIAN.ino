@@ -11,7 +11,7 @@
 #include <ArduinoJson.h>
 
 // #include <SocketIoClient.h>  // Include Socket.IO client library
-#define TESTING true
+#define TESTING false
 String DEVICE_ID = "20240001";
 
 const char* initial_ssid = "ESP-12";
@@ -1286,13 +1286,17 @@ void makeGetRequest() {
       // Extract data
       JsonArray timeArray = doc["time"];
       int id = doc["id"];
-
+      Feed_Times_len = 0;
       Serial.println("Time Data:");
       for (JsonObject timeObj : timeArray) {
         int hour = timeObj["hour"];
         int minute = timeObj["minute"];
         int second = timeObj["second"];
         Serial.printf("Hour: %d, Minute: %d, Second: %d\n", hour, minute, second);
+        Feed_Times[Feed_Times_len][0] = hour;
+        Feed_Times[Feed_Times_len][1] = minute;
+        Feed_Times[Feed_Times_len][2] = second;
+        Feed_Times_len++;
       }
 
       Serial.printf("ID: %d\n", id);
@@ -1303,6 +1307,19 @@ void makeGetRequest() {
     http.end();  // Close connection
   } else {
     Serial.println("WiFi not connected");
+  }
+}
+void feed(){
+  digitalWrite(2, HIGH);
+  delay(3000);
+  digitalWrite(2, LOW);
+}
+void handle_feed(){
+  for(int i=0; i < Feed_Times_len; i++){
+    if (timeClient.getHours() == Feed_Times[i][0] && timeClient.getMinutes() == Feed_Times[i][1] && timeClient.getSeconds() == Feed_Times[i][2]) {
+      feed();
+      delay(1000);
+    }
   }
 }
 void setup() {
@@ -1378,13 +1395,11 @@ void loop() {
   }
 
   if (digitalRead(16)) {
-    qrCodeDisplayed = !qrCodeDisplayed;
     timeClient.update();
+    feed();
     while (digitalRead(16));
-    digitalWrite(2, HIGH);
-    delay(3000);
-    digitalWrite(2, LOW);
   }
   display.display();
-}
 
+  handle_feed();
+}
