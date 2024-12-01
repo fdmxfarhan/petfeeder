@@ -1,0 +1,196 @@
+Board Information Report
+Filename     : C:\Users\Farhan\Documents\GitHub\petfeeder\PCB Design\02 PetFeeder 2024\PetFeeder.PcbDoc
+Date         : 10/28/2024
+Time         : 11:22:51 PM
+Time Elapsed : 00:00:00
+
+General
+    Board Size, 80.01mmx60.071mm
+    Components on board, 57
+count : 2
+
+Routing Information
+    Routing completion, 100.00%
+    Connections, 88
+    Connections routed, 88
+    Connections remaining, 0
+count : 4
+
+Layer, Arcs, Pads, Vias, Tracks, Texts, Fills, Regions, ComponentBodies
+    Top Layer, 0, 116, 0, 320, 0, 0, 1, 0
+    Bottom Layer, 0, 30, 0, 107, 0, 0, 0, 0
+    Mechanical 1, 0, 0, 0, 26, 0, 0, 0, 32
+    Mechanical 13, 1, 0, 0, 112, 0, 1, 2, 8
+    Mechanical 15, 0, 0, 0, 188, 0, 0, 0, 8
+    Multi-Layer, 0, 22, 60, 0, 0, 0, 1, 0
+    Top Paste, 0, 0, 0, 0, 0, 0, 16, 0
+    Top Overlay, 19, 0, 0, 341, 91, 8, 0, 0
+    Top Solder, 0, 0, 0, 0, 0, 0, 0, 0
+    Bottom Solder, 0, 0, 0, 0, 0, 0, 0, 0
+    Bottom Overlay, 0, 0, 0, 108, 32, 0, 0, 0
+    Bottom Paste, 0, 0, 0, 0, 0, 0, 0, 0
+    Drill Guide, 0, 0, 0, 0, 0, 0, 0, 0
+    Keep-Out Layer, 0, 0, 0, 0, 0, 0, 0, 0
+    Drill Drawing, 0, 0, 0, 0, 0, 0, 0, 0
+count : 15
+
+Drill Pairs, Vias
+    Top Layer - Bottom Layer, 60
+count : 1
+
+Layer, Sq.In., Sq.MM., Percent of layer
+    Top Layer, 1.55, 1000.313, 21%
+    Bottom Layer, 1.43, 922.771, 19%
+count : 2
+
+Non-Plated Hole Size, Pads, Vias
+count : 0
+
+Plated Hole Size, Pads, Vias
+    0mm, 146, 0
+    0.3mm, 0, 60
+    1mm, 6, 0
+    1.016mm, 8, 0
+    3.15mm, 4, 0
+    3.5mm, 4, 0
+count : 6
+
+Non-Plated Slot Size / Length, Pads
+count : 0
+
+Plated Slot Size / Length, Pads
+count : 0
+
+Non-Plated Square Hole Size, Pads
+count : 0
+
+Plated Square Hole Size, Pads
+count : 0
+
+Top Layer Annular Ring Size, Count
+    -1.976mm, 4
+    0.3mm, 60
+    0.6mm, 2
+    1mm, 4
+    1.016mm, 8
+    1.85mm, 4
+count : 6
+
+Mid Layer Annular Ring Size, Count
+    -1.976mm, 4
+    0.3mm, 60
+    0.6mm, 2
+    1mm, 4
+    1.016mm, 8
+    1.85mm, 4
+count : 6
+
+Bottom Layer Annular Ring Size, Count
+    -1.976mm, 4
+    0.3mm, 60
+    0.6mm, 2
+    1mm, 4
+    1.016mm, 8
+    1.85mm, 4
+count : 6
+
+Pad Solder Mask, Count
+    -1.27mm, 4
+    0.1mm, 4
+    0.1016mm, 160
+count : 3
+
+Pad Paste Mask, Count
+    -7mm, 1
+    0mm, 167
+count : 2
+
+Pad Pwr/Gnd Expansion, Count
+    0.508mm, 168
+count : 1
+
+Pad Relief Conductor Width, Count
+    0.254mm, 168
+count : 1
+
+Pad Relief Air Gap, Count
+    0.254mm, 168
+count : 1
+
+Pad Relief Entries, Count
+    4, 168
+count : 1
+
+Via Solder Mask, Count
+    0.1016mm, 60
+count : 1
+
+Via Pwr/Gnd Expansion, Count
+    0.508mm, 60
+count : 1
+
+Track Width, Count
+    0.05mm, 68
+    0.07mm, 60
+    0.1mm, 136
+    0.127mm, 22
+    0.15mm, 18
+    0.1524mm, 59
+    0.2mm, 43
+    0.254mm, 39
+    0.3mm, 382
+    0.4mm, 38
+    0.5mm, 55
+    0.6mm, 116
+    0.7mm, 31
+    0.8mm, 62
+    1mm, 73
+count : 15
+
+Arc Line Width, Count
+    0.1mm, 5
+    0.127mm, 2
+    0.2mm, 3
+    0.25mm, 8
+    0.254mm, 1
+    0.6mm, 1
+count : 6
+
+Arc Radius, Count
+    0.125mm, 8
+    0.127mm, 1
+    0.25mm, 1
+    0.3mm, 1
+    0.5mm, 2
+    1.5mm, 1
+    2.7179mm, 4
+    5mm, 1
+    6.2mm, 1
+count : 9
+
+Arc Degrees, Count
+    114, 1
+    360, 19
+count : 2
+
+Text Height, Count
+    0.8mm, 96
+    1mm, 1
+    1.524mm, 26
+count : 3
+
+Text Width, Count
+    0.1mm, 1
+    0.1524mm, 4
+    0.16mm, 1
+    0.18mm, 95
+    0.254mm, 22
+count : 5
+
+Net Track Width, Count
+    0.1mm, 61
+count : 1
+
+Net Via Size, Count
+    0.6mm, 61
+count : 1
