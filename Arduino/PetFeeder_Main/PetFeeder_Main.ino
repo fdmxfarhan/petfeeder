@@ -1311,7 +1311,7 @@ void makeGetRequest() {
 }
 void feed(){
   digitalWrite(2, HIGH);
-  delay(3000);
+  delay(6000);
   digitalWrite(2, LOW);
 }
 void handle_feed(){
